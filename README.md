@@ -6,6 +6,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/ivanomatteo/code-igniter-mini-rest-controller.svg?style=flat-square)](https://packagist.org/packages/ivanomatteo/code-igniter-mini-rest-controller)
 
 
+! THIS PACKAGE IS UNDER DEVELOPMENT
+
 ## Installation
 
 You can install the package via composer:
