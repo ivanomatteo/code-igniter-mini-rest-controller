@@ -3,6 +3,11 @@ namespace IvanoMatteo\CIRest;
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use CI_Controller;
+use Exception;
+use stdClass;
+
+
 class MiniRestController extends CI_Controller
 {
 	function __construct()
@@ -36,7 +41,7 @@ class MiniRestController extends CI_Controller
 				return;
 			}
 			return $this->response($resp);
-		} catch (\Exception $ex) {
+		} catch (Exception $ex) {
 			return $this->handleExceptions($ex);
 		}
 	}
@@ -58,7 +63,7 @@ class MiniRestController extends CI_Controller
 	protected function response($resp, $status = 200, $content_type = null)
 	{
 
-		if (!isset($content_type) && !is_object($resp) || $resp instanceof \stdClass) {
+		if (!isset($content_type) && !is_object($resp) || $resp instanceof stdClass) {
 			$this->output->set_output(
 				json_encode($resp)
 			)->set_content_type('application/json');
@@ -75,11 +80,12 @@ class MiniRestController extends CI_Controller
 
 	protected function handleExceptions($ex)
 	{
-		$http_ex = ($ex instanceof \HttpException);
+		$http_ex = ($ex instanceof HttpException);
 		$status = $http_ex ? $ex->getCode() : 500;
 		$message = $http_ex ? $ex->getMessage() : get_class($ex);
 
-		Log::error($ex);
+		
+		log_message('error', $ex->getMessage());
 
 		return $this->output
 			->set_content_type('application/json')
@@ -192,7 +198,7 @@ class MiniRestController extends CI_Controller
 					break;
 
 				default:
-					throw new \HttpException('unknown http method', 405);
+					throw new HttpException('unknown http method', 405);
 			}
 			if (!$this->_params) {
 				$this->_params = [];
