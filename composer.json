@@ -1,0 +1,39 @@
+{
+    "name": "ivanomatteo/code-igniter-mini-rest-controller",
+    "description": "A mini rest controller for codeigniter 3",
+    "keywords": [
+        "ivanomatteo",
+        "code-igniter-mini-rest-controller"
+    ],
+    "homepage": "https://github.com/ivanomatteo/code-igniter-mini-rest-controller",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ivano Matteo",
+            "email": "ivanomatteo@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "IvanoMatteo\\CIRest\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IvanoMatteo\\CIRest\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
