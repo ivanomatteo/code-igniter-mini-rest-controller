@@ -81,7 +81,7 @@ class MiniRestController extends CI_Controller
 	protected function handleExceptions($ex)
 	{
 		$http_ex = ($ex instanceof HttpException);
-		$status = $http_ex ? $ex->getCode() : 500;
+		$status = $http_ex ? $ex->getCode() : HttpConst::INTERNAL_SERVER_ERROR;
 		$message = $http_ex ? $ex->getMessage() : get_class($ex);
 
 		
@@ -198,7 +198,7 @@ class MiniRestController extends CI_Controller
 					break;
 
 				default:
-					throw new HttpException('unknown http method', 405);
+					throw new HttpException('unknown http method', HttpConst::METHOD_NOT_ALLOWED);
 			}
 			if (!$this->_params) {
 				$this->_params = [];
