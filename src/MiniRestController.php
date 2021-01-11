@@ -20,7 +20,7 @@ class MiniRestController extends CI_Controller
 	protected $_params = null;
 	protected $_headers = null;
 	protected $_middlewares = [];
-	protected static $_middlewares_global = [];
+	public static $_middlewares_global = [];
 
 
 	protected function boot()
