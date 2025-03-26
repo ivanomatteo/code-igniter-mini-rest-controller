@@ -7,7 +7,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class HttpConst
 {
-
     const CONTINUE = 100;
     const SWITCHING_PROTOCOLS = 101;
     const PROCESSING = 102;
@@ -27,13 +26,11 @@ class HttpConst
     const FOUND = 302;
     const SEE_OTHER = 303;
 
-
     const NOT_MODIFIED = 304;
     const USE_PROXY = 305;
     const RESERVED = 306;
     const TEMPORARY_REDIRECT = 307;
     const PERMANENTLY_REDIRECT = 308;
-
 
     const BAD_REQUEST = 400;
     const UNAUTHORIZED = 401;
